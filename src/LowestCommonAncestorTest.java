@@ -44,5 +44,40 @@ class LowestCommonAncestorTest {
         assertEquals("This answer should be 0",0,testTree.findLCA(1, 5));
   
 	}
+	//Submit from here down	
+	@Test
+	void testTree2() {
+		LowestCommonAncestor testTree = new LowestCommonAncestor();
+		testTree.root = new Node(0);
+		testTree.root.left = new Node(1);
+		testTree.root.left.left = new Node(2);
+		testTree.root.left.left.left = new Node(3);
+		testTree.root.left.left.left.right = new Node(4);
+		testTree.root.left.left.right = new Node(5);
+		testTree.root.right = new Node(6);
+		testTree.root.right.right = new Node(7);
+		testTree.root.right.right.left = new Node(8);
+		testTree.root.right.right.left.left = new Node(9);
+		testTree.root.right.right.left.right = new Node(10);
+		assertEquals("This answer should be 0", 0 , testTree.findLCA(10, 2));
+	}
+	
+	@Test
+	void testTree3() {
+		LowestCommonAncestor testTree = new LowestCommonAncestor();
+		testTree.root = new Node(0);
+		testTree.root.left = new Node(1);
+		testTree.root.left.right = new Node(2);
+		testTree.root.left.right.right = new Node(3);
+		testTree.root.left.right.right.left = new Node(4);
+		testTree.root.right = new Node(5);
+		testTree.root.right.left = new Node(6);
+		testTree.root.right.right = new Node(7);
+		testTree.root.right.right.right = new Node(8);
+		testTree.root.right.right.right.left = new Node(9);
+		testTree.root.right.right.right.left.right = new Node(10);
+		testTree.root.right.right.right.left.right.right = new Node(11);
+		assertEquals("This answer should be 5",5,testTree.findLCA(6, 10));
+	}
 
 }
