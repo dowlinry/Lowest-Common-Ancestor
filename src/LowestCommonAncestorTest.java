@@ -1,10 +1,10 @@
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
 class LowestCommonAncestorTest {
-
+	//Tests for Binary Search Trees
 	@Test
 	void testEmptyTree() {
 		LowestCommonAncestor testTree = new LowestCommonAncestor();
@@ -44,7 +44,7 @@ class LowestCommonAncestorTest {
         assertEquals("This answer should be 0",0,testTree.findLCA(1, 5));
   
 	}
-	//Submit from here down	
+	
 	@Test
 	void testTree2() {
 		LowestCommonAncestor testTree = new LowestCommonAncestor();
@@ -78,6 +78,14 @@ class LowestCommonAncestorTest {
 		testTree.root.right.right.right.left.right = new Node(10);
 		testTree.root.right.right.right.left.right.right = new Node(11);
 		assertEquals("This answer should be 5",5,testTree.findLCA(6, 10));
+	}
+	
+	//Tests for Directed Acyclic Graphs from here down
+	//
+	@Test
+	void emptyGraph(){
+		DAGraph testGraph = new DAGraph(0);
+		assertTrue("List should be empty",testGraph.lowestCommonAncestor(2, 1).isEmpty());
 	}
 
 }
