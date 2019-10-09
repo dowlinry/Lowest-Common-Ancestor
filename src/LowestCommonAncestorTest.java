@@ -1,6 +1,9 @@
 import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 class LowestCommonAncestorTest {
@@ -88,4 +91,22 @@ class LowestCommonAncestorTest {
 		assertTrue("List should be empty",testGraph.lowestCommonAncestor(2, 1).isEmpty());
 	}
 
+	@Test
+	void testOutOfRangeInputs() {
+		DAGraph testGraph = new DAGraph(4);
+		testGraph.addEdge(0, 1);	
+		testGraph.addEdge(0, 2);
+		testGraph.addEdge(2, 3);
+		
+		assertTrue("Testing nodes that are out of range",testGraph.lowestCommonAncestor(69,420 ).isEmpty());
+	}
+	@Test
+	void testNegativeInputs() {
+		DAGraph testGraph = new DAGraph(4);
+		testGraph.addEdge(0, 1);	
+		testGraph.addEdge(0, 2);
+		testGraph.addEdge(2, 3);
+		
+		assertTrue("Testing nodes that are negative",testGraph.lowestCommonAncestor(-69,-420 ).isEmpty());
+	}
 }
