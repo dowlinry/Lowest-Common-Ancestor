@@ -109,4 +109,42 @@ class LowestCommonAncestorTest {
 		
 		assertTrue("Testing nodes that are negative",testGraph.lowestCommonAncestor(-69,-420 ).isEmpty());
 	}
-}
+	
+	@Test
+	void testSingleReturnLCA() {
+		DAGraph testGraph = new DAGraph(4);
+		testGraph.addEdge(0, 1);	
+		testGraph.addEdge(0, 2);
+		testGraph.addEdge(2, 3);
+		
+		ArrayList<Integer> result = new ArrayList<Integer>();
+		result.add(0);
+		
+		assertTrue("Testing for singular return of LCA",testGraph.lowestCommonAncestor(3, 1).contains(result.get(0)));
+		
+	}
+	@Test
+	void testMultipleReturnLCA(){
+		DAGraph testGraph = new DAGraph(7);
+		
+		testGraph.addEdge(0, 3);			
+		testGraph.addEdge(1, 3);
+		testGraph.addEdge(1, 4);
+		testGraph.addEdge(2, 5);
+		testGraph.addEdge(2, 6);
+		testGraph.addEdge(3, 5);
+		testGraph.addEdge(3, 6);
+		testGraph.addEdge(4, 6);
+		
+		ArrayList<Integer> result = new ArrayList<Integer>();
+		result.add(3);
+		result.add(2);
+		
+		assertTrue("Testing that there are multiple outputs", testGraph.lowestCommonAncestor(5, 6).size() == result.size() );
+		
+		for(int i = 0; i < result.size(); i++) {
+			assertTrue("Testing outputs are correct",testGraph.lowestCommonAncestor(5, 6).contains(result.get(i)));
+		}
+		
+	}
+} 

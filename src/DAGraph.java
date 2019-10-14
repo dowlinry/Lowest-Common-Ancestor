@@ -174,7 +174,7 @@ private class DirectedDFS
 		revMarked = new boolean[G.V()];
 		dfs(G, s);
 	}
-	
+
 	
 	//standard dfs - in the flow of direction.
 	private void dfs(DAGraph G, int v)
